@@ -858,6 +858,148 @@
       line-height: 1.5;
     }
 
+  
+    /* ==========================================================================
+       HAI KHỐI SỰ KIỆN TIỆC CƯỚI & LỄ VU QUY NHÀ GÁI (THEO THIỆP IN)
+       ========================================================================== */
+    .party-events-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+      text-align: left;
+    }
+    .party-event-subcard {
+      background: #ffffff;
+      border: 1.5px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      padding: 22px 20px;
+      box-shadow: 0 4px 16px rgba(142, 21, 38, 0.04);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .party-event-subcard:hover {
+      border-color: var(--crimson-border);
+      box-shadow: 0 8px 24px rgba(142, 21, 38, 0.1);
+      transform: translateY(-2px);
+    }
+    .party-event-subcard.featured-party {
+      border: 2px solid var(--crimson-royal);
+      background: linear-gradient(180deg, #ffffff 0%, #fffbfb 100%);
+    }
+    .party-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--crimson-soft);
+      color: var(--crimson-royal);
+      font-family: var(--font-title);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .party-event-subcard.featured-party .party-badge-pill {
+      background: var(--crimson-royal);
+      color: #ffffff;
+    }
+    .party-subcard-time {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--crimson-royal);
+      margin-bottom: 3px;
+      line-height: 1.25;
+    }
+    .party-subcard-solar {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+    .party-subcard-lunar {
+      font-family: var(--font-editorial);
+      font-size: 14.5px;
+      font-style: italic;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+    }
+    .party-subcard-venue {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+    .party-subcard-address {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .btn-subcard-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      background: #fbf5ee;
+      border: 1px solid var(--gold-border);
+      color: var(--crimson-royal);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-subcard-map:hover {
+      background: var(--crimson-royal);
+      color: #ffffff;
+      border-color: var(--crimson-royal);
+    }
+    .party-event-subcard.featured-party .btn-subcard-map {
+      background: linear-gradient(135deg, var(--crimson-royal) 0%, var(--crimson-deep) 100%);
+      color: #ffffff;
+      border-color: var(--crimson-royal);
+    }
+    .party-event-subcard.featured-party .btn-subcard-map:hover {
+      background: linear-gradient(135deg, var(--crimson-deep) 0%, #300208 100%);
+      transform: translateY(-1.5px);
+    }
+    .family-rep-box {
+      background: #faf6f0;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--gold-border);
+      padding: 16px 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .family-rep-title {
+      font-family: var(--font-title);
+      font-size: 11.5px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--crimson-royal);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .family-rep-names {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .family-rep-quote {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--gold-dark);
+      line-height: 1.5;
+    }
+
   </style>
 </head>
 <body>
@@ -1919,25 +2061,25 @@
     <!-- Hero / Header -->
     <header class="hero-section">
       <div class="hero-monogram reveal-item reveal-zoom">N &amp; S</div>
-      <div class="hero-subtitle reveal-item reveal-up delay-1">Lễ Vu Quy &bull; Save Our Date</div>
+      <div class="hero-subtitle reveal-item reveal-up delay-1">Lễ Vu Quy &bull; Tiệc Mừng</div>
       <h1 class="hero-names reveal-item reveal-up delay-2">
-        <span class="groom-fullname">Vũ Văn Sang</span>
-        <span class="name-divider">&amp;</span>
         <span class="bride-fullname">Lưu Thị Hồng Ngọc</span>
+        <span class="name-divider">&amp;</span>
+        <span class="groom-fullname">Vũ Văn Sang</span>
       </h1>
       
-      <div class="hero-date-badge reveal-item reveal-up delay-3" id="party-solar-date">Chủ Nhật, 20 Tháng 12 Năm 2026</div>
+      <div class="hero-date-badge reveal-item reveal-up delay-3" id="party-solar-date">Thứ Bảy, 19 Tháng 12 Năm 2026</div>
 
       <!-- Khung Ảnh Cưới Cặp Đôi (Hero Portrait) -->
       <div class="hero-couple-frame reveal-item reveal-zoom delay-3">
         <div class="hero-couple-img-wrap">
-          <img id="hero-cover-img" src="images/NTD07535.jpg" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1hwAjqchG3nYENmPB3L_BgyZljF1CzdQV=w1200';" alt="Vũ Văn Sang &amp; Lưu Thị Hồng Ngọc" />
+          <img id="hero-cover-img" src="images/NTD07535.jpg" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1hwAjqchG3nYENmPB3L_BgyZljF1CzdQV=w1200';" alt="Lưu Thị Hồng Ngọc &amp; Vũ Văn Sang" />
         </div>
-        <div class="hero-couple-badge">The Wedding &bull; Sang &amp; Ngọc</div>
+        <div class="hero-couple-badge">The Wedding &bull; Ngọc &amp; Sang</div>
       </div>
 
       <div class="hero-quote-card reveal-item reveal-up delay-4">
-        <p id="quote-text">“Tình yêu không phải là tìm kiếm một người hoàn hảo, mà là học cách nhìn một người không hoàn hảo một cách hoàn hảo.”</p>
+        <p id="quote-text">“Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi mừng ngày thành hôn của con gái!”</p>
       </div>
 
       <!-- Đồng hồ đếm ngược -->
@@ -1965,7 +2107,7 @@
     <section class="invitation-card-section">
       <div class="card-paper-frame reveal-item reveal-up">
         
-        <div class="section-tag reveal-item reveal-up delay-1">Trân Trọng Kính Mời</div>
+        <div class="section-tag reveal-item reveal-up delay-1">Trân Trọng Báo Tin Lễ Vu Quy &amp; Tiệc Mừng</div>
         <h2 class="card-main-title reveal-item reveal-zoom delay-2">Thiệp Mời Vu Quy</h2>
 
         <div class="divider-ornament reveal-item reveal-zoom delay-2">
@@ -1974,7 +2116,7 @@
           <span class="line"></span>
         </div>
 
-        <!-- Thẻ Chú Rể & Cô Dâu Với Ảnh Chân Dung Thật -->
+        <!-- Thẻ Cô Dâu & Chú Rể Với Ảnh Chân Dung Thật (Nhà Gái Cô Dâu Đứng Trước) -->
         <div class="couple-profiles-section reveal-item reveal-up delay-2">
           <div class="couple-profiles-grid">
             <div class="profile-card bride-card">
@@ -1987,7 +2129,7 @@
                 Con của:<br>
                 <span id="bride-father">Ông: Lưu Mạnh Thường</span><br>
                 <span id="bride-mother">Bà: Ngô Thị Thơm</span>
-                <div class="profile-hometown" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Khu 6 Hương Xa, X. Yên Kỳ, T. Phú Thọ</div>
+                <div class="profile-hometown" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ</div>
               </div>
             </div>
             
@@ -2005,27 +2147,7 @@
                 Con của:<br>
                 <span id="groom-father">Ông: Vũ Văn Tùng</span><br>
                 <span id="groom-mother">Bà: Lại Thị Phượng</span>
-                <div class="profile-hometown" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Xóm 6 Phúc Thắng, X. Rạng Đông, T. Ninh Bình</div>
-              </div>
-            </div>
-          </div>
-        </div>
-            
-            <div class="profile-card-center-icon">
-              <span>❤</span>
-            </div>
-
-            <div class="profile-card bride-card">
-              <div class="profile-avatar-wrap">
-                <img id="bride-avatar-img" src="images/NTD07890.jpg" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1pz0qjlUBmDudsFGDVCy4CS13uYK1nLPR=w800';" alt="Cô Dâu Lưu Thị Hồng Ngọc" />
-              </div>
-              <div class="profile-role">CÔ DÂU</div>
-              <div class="profile-name"><span class="bride-fullname">Lưu Thị Hồng Ngọc</span></div>
-              <div class="profile-parents">
-                Con của:<br>
-                <span id="bride-father">Ông: Lưu Mạnh Thường</span><br>
-                <span id="bride-mother">Bà: Ngô Thị Thơm</span>
-                <div class="profile-hometown" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Khu 6 Hương Xa, X. Yên Kỳ, T. Phú Thọ</div>
+                <div class="profile-hometown" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Xóm 6 Phúc Thắng, Xã Rạng Đông, H. Nghĩa Hưng, T. Ninh Bình</div>
               </div>
             </div>
           </div>
@@ -2037,27 +2159,64 @@
           <span class="name groom-fullname reveal-item reveal-right delay-4">Vũ Văn Sang</span>
         </div>
 
-                <!-- Hộp thông tin tiệc Lễ Vu Quy Nhà Gái -->
+        <!-- Hộp Thông Tin Tiệc Cưới & Lễ Vu Quy Nhà Gái Chuẩn Theo Thiệp In -->
         <div class="party-invite-box reveal-item reveal-up delay-2">
-          <div class="party-invite-title reveal-item reveal-up delay-3">Thân Mời: <span class="guest-name-display">Bạn Bè Người Thương</span></div>
-          <p class="party-invite-desc reveal-item reveal-up delay-3">Tới dự bữa cơm thân mật chung vui Lễ Vu Quy cùng gia đình chúng mình</p>
+          <div class="party-invite-title reveal-item reveal-up delay-3">Trân Trọng Kính Mời:</div>
+          <div class="guest-name-display reveal-item reveal-zoom delay-3" style="color: var(--crimson-royal); font-family: var(--font-editorial); font-size: 28px; font-weight: 700; margin: 4px 0 10px;">Bạn Bè Người Thương</div>
+          <p class="party-invite-desc reveal-item reveal-up delay-3" style="font-size: 15.5px; max-width: 500px; margin: 0 auto 20px; line-height: 1.6;">
+            Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi mừng ngày thành hôn của con gái!
+          </p>
           
-          <div class="divider-ornament reveal-item reveal-zoom delay-3" style="margin: 12px 0;">
+          <div class="divider-ornament reveal-item reveal-zoom delay-3" style="margin: 12px 0 24px;">
             <span class="line" style="width: 30px;"></span>
             <span class="diamond"></span>
             <span class="line" style="width: 30px;"></span>
           </div>
 
-          <div class="party-time-highlight reveal-item reveal-zoom delay-4" id="party-time-text">Vào lúc: 07:30</div>
-          <div class="party-date-solar reveal-item reveal-up delay-4">Chủ Nhật, ngày 20 tháng 12 năm 2026</div>
-          <div class="party-date-lunar reveal-item reveal-up delay-4" id="party-lunar-date">(Nhằm ngày 12 tháng 11 năm Bính Ngọ)</div>
+          <!-- Hai Khối Sự Kiện Cưới Rõ Ràng Của Nhà Gái -->
+          <div class="party-events-grid">
+            
+            <!-- Sự Kiện 1: TIỆC CƯỚI & BỮA CƠM THÂN MẬT (Tại Nhà Hàng Sơn Tám) -->
+            <div class="party-event-subcard featured-party reveal-item reveal-zoom delay-3">
+              <div class="party-badge-pill">
+                <span>🍽️</span>
+                <span>Tiệc Cưới &amp; Bữa Cơm Thân Mật</span>
+              </div>
+              <div class="party-subcard-time" id="party-time-text">Thứ Bảy, 19 . 12 . 2026</div>
+              <div class="party-subcard-lunar" id="party-lunar-date">(Nhằm ngày 11 tháng 11 năm Bính Ngọ)</div>
+              <div class="party-subcard-venue" id="party-venue-name">Nhà Hàng Sơn Tám</div>
+              <div class="party-subcard-address" id="party-address-text">Khu 6, Xã Yên Kỳ, Huyện Hạ Hòa, Tỉnh Phú Thọ</div>
+              <a id="btn-google-map" href="https://www.google.com/maps/search/?api=1&query=Nh%C3%A0+h%C3%A0ng+S%C6%A1n+T%C3%A1m+Khu+6+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D" target="_blank" rel="noopener" class="btn-subcard-map">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Chỉ Đường Tới Nhà Hàng Sơn Tám</span>
+              </a>
+            </div>
 
-          <div style="margin-top: 16px;">
-            <div class="party-venue-name reveal-item reveal-up delay-5" id="party-venue-name">Tư gia Nhà Gái</div>
-            <div class="party-hall reveal-item reveal-up delay-5" id="party-hall-name">Lễ Vu Quy</div>
-            <div class="party-address reveal-item reveal-up delay-6" id="party-address-text">Khu 6 Hương Xa, Xã Yên Kỳ, Tỉnh Phú Thọ</div>
+            <!-- Sự Kiện 2: LỄ VU QUY (Tại Tư Gia Nhà Gái) -->
+            <div class="party-event-subcard reveal-item reveal-zoom delay-4">
+              <div class="party-badge-pill" style="background: #fdf2f4; color: var(--crimson-royal);">
+                <span>🌸</span>
+                <span>Lễ Vu Quy (Nghi Thức Xuất Giá)</span>
+              </div>
+              <div class="party-subcard-time" style="font-size: 21px;">12 Giờ 00 &bull; Chủ Nhật, 20 . 12 . 2026</div>
+              <div class="party-subcard-lunar">(Nhằm ngày 12 tháng 11 năm Bính Ngọ)</div>
+              <div class="party-subcard-venue">Tư Gia Nhà Gái</div>
+              <div class="party-subcard-address">Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ</div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Khu+6+H%C6%B0%C6%A1ng+X%E1%BA%A1+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D" target="_blank" rel="noopener" class="btn-subcard-map" style="background: #fbf7f0; color: #624b33; border-color: #dfd4c4;">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Chỉ Đường Tới Tư Gia Nhà Gái</span>
+              </a>
+            </div>
+
           </div>
-        </div>
+
+          <!-- Khung Đón Tiếp Trang Trọng từ Gia Đình Nhà Gái -->
+          <div class="family-rep-box reveal-item reveal-up delay-5">
+            <div class="family-rep-title">ĐÓN TIẾP TRANG TRỌNG</div>
+            <div class="family-rep-names">Đại diện gia đình: Ông bà Lưu Mạnh Thường &amp; Ngô Thị Thơm kính báo</div>
+            <div class="family-rep-quote">“Sự hiện diện của Quý vị là niềm vinh hạnh sâu sắc đối với gia đình chúng tôi!”</div>
+          </div>
+
         </div>
 
         <!-- Khung Dress Code Tone Pastel theo mẫu thiệp in -->
@@ -2074,14 +2233,7 @@
 
         <!-- Các nút bấm thao tác -->
         <div class="action-buttons-group reveal-item reveal-up delay-5">
-          <a id="btn-google-map" href="#" target="_blank" rel="noopener" class="btn-primary">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <span>Chỉ Đường Google Maps</span>
-          </a>
-
-          <a id="btn-add-calendar" href="#" target="_blank" rel="noopener" class="btn-secondary">
+          <a id="btn-add-calendar" href="#" target="_blank" rel="noopener" class="btn-primary">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
             </svg>
@@ -2090,14 +2242,6 @@
         </div>
 
       </div>
-    </section>
-
-    <!-- Lịch trình ngày cưới (Timeline) -->
-    <section class="timeline-section">
-      <div class="section-tag reveal-item reveal-up">Chương Trình Tiệc Cưới</div>
-      <h2 class="card-main-title reveal-item reveal-zoom delay-1" style="font-size: 32px; margin-bottom: 0;">Lịch Trình</h2>
-      
-      <div class="timeline-list" id="timeline-list"></div>
     </section>
 
     <!-- Album Ảnh Cưới (Gallery) -->
@@ -2470,7 +2614,7 @@
         shortName: "Vũ Sang",
         father: "Vũ Văn Tùng",
         mother: "Lại Thị Phượng",
-        address: "Xóm 6 Phúc Thắng, X. Rạng Đông, T. Ninh Bình",
+        address: "Xóm 6 Phúc Thắng, Xã Rạng Đông, H. Nghĩa Hưng, T. Ninh Bình",
         phone: "0337429431",
         avatar: "images/NTD07810.jpg",
         avatarFallback: "https://lh3.googleusercontent.com/d/1wqVSMSgOSMNuvcaBRvY4ZyQBpH_RFyk4=w800",
@@ -2487,7 +2631,7 @@
         shortName: "Hồng Ngọc",
         father: "Lưu Mạnh Thường",
         mother: "Ngô Thị Thơm",
-        address: "Khu 6 Hương Xa, X. Yên Kỳ, T. Phú Thọ",
+        address: "Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ",
         phone: "0962262270",
         avatar: "images/NTD07890.jpg",
         avatarFallback: "https://lh3.googleusercontent.com/d/1pz0qjlUBmDudsFGDVCy4CS13uYK1nLPR=w800",
@@ -2522,26 +2666,31 @@
         ]
       },
 
-            // TIỆC CƯỚI TƯ GIA NHÀ GÁI (PHÚ THỌ) - LỄ VU QUY
+            // TIỆC CƯỚI & LỄ VU QUY NHÀ GÁI (PHÚ THỌ) - Chuẩn theo ảnh thiệp in
       event: {
         side: "bride",
         sideLabel: "Nhà Gái",
-        invitationType: "Thiệp Mời Vu Quy",
-        title: "Lễ Vu Quy - Tư Gia Nhà Gái",
-        subTitle: "Thân mời anh em, bạn bè và người thương tới chung vui bữa cơm thân mật cùng gia đình chúng mình!",
-        solarDate: "2026-12-20T07:30:00", 
-        solarDateText: "Chủ Nhật, 20 . 12 . 2026",
-        lunarDateText: "Nhằm ngày 12/11 năm Bính Ngọ",
-        timeText: "Vào lúc: 07:30",
-        locationName: "Tư gia Nhà Gái",
-        hallName: "Lễ Vu Quy",
-        address: "Khu 6 Hương Xa, Xã Yên Kỳ, Tỉnh Phú Thọ",
-        mapUrl: "https://maps.google.com/?q=Khu+6+H%C6%B0%C6%A1ng+Xa,+Y%C3%AAn+K%E1%BB%B3,+Ph%C3%BA+Th%E1%BB%8D",
-        timeline: [
-          { time: "07:30", title: "Đón Tiếp Khách Quý", desc: "Đón tiếp họ hàng, anh em bạn bè thân thiết tại tư gia Nhà Gái" },
-          { time: "09:00", title: "Lễ Vu Quy & Khai Tiệc", desc: "Nghi thức xuất giá, dâng trà chúc phúc và bữa cơm thân mật ấm cúng" },
-          { time: "10:30", title: "Lễ Rước Dâu", desc: "Đoàn nhà trai đón dâu khởi hành về tư gia Ninh Bình" }
-        ]
+        invitationType: "Thiệp Mời Vu Quy & Tiệc Mừng",
+        title: "Hồng Ngọc & Vũ Sang — Lễ Vu Quy & Tiệc Mừng",
+        subTitle: "Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi mừng ngày thành hôn của con gái!",
+        // Tiệc cưới Thứ Bảy 19/12/2026 tại Nhà Hàng Sơn Tám
+        solarDate: "2026-12-19T10:00:00", 
+        solarDateText: "Thứ Bảy, 19 . 12 . 2026",
+        lunarDateText: "Nhằm ngày 11/11 năm Bính Ngọ",
+        timeText: "Thứ Bảy, 19 . 12 . 2026",
+        locationName: "Nhà Hàng Sơn Tám",
+        hallName: "Tiệc Mừng Vu Quy",
+        address: "Khu 6, Xã Yên Kỳ, Huyện Hạ Hòa, Tỉnh Phú Thọ",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=Nh%C3%A0+h%C3%A0ng+S%C6%A1n+T%C3%A1m+Khu+6+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D",
+        ceremony: {
+          title: "Lễ Vu Quy (Nghi thức Xuất Giá)",
+          timeText: "12 Giờ 00",
+          solarDateText: "Chủ Nhật, 20 . 12 . 2026",
+          lunarDateText: "Nhằm ngày 12/11 năm Bính Ngọ",
+          locationName: "Tư Gia Nhà Gái",
+          address: "Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=Khu+6+H%C6%B0%C6%A1ng+X%E1%BA%A1+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D"
+        }
       },
 
       gallery: [

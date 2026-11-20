@@ -10,7 +10,7 @@ const WEDDING_CONFIG = {
     shortName: "Vũ Sang",
     father: "Vũ Văn Tùng",
     mother: "Lại Thị Phượng",
-    address: "Xóm 6 Phúc Thắng, X. Rạng Đông, T. Ninh Bình",
+    address: "Xóm 6 Phúc Thắng, Xã Rạng Đông, H. Nghĩa Hưng, T. Ninh Bình",
     phone: "0337429431",
     avatar: "images/NTD07810.jpg",
     avatarFallback: "https://lh3.googleusercontent.com/d/1wqVSMSgOSMNuvcaBRvY4ZyQBpH_RFyk4=w800",
@@ -28,7 +28,7 @@ const WEDDING_CONFIG = {
     shortName: "Hồng Ngọc",
     father: "Lưu Mạnh Thường",
     mother: "Ngô Thị Thơm",
-    address: "Khu 6 Hương Xa, X. Yên Kỳ, T. Phú Thọ",
+    address: "Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ",
     phone: "0962262270",
     avatar: "images/NTD07890.jpg",
     avatarFallback: "https://lh3.googleusercontent.com/d/1pz0qjlUBmDudsFGDVCy4CS13uYK1nLPR=w800",
@@ -90,26 +90,33 @@ const WEDDING_CONFIG = {
     ]
   },
 
-  // 7. TIỆC CƯỚI TƯ GIA NHÀ GÁI (PHÚ THỌ) - Dành riêng cho Cô Dâu gửi bạn bè Nhà Gái
+    // 7. TIỆC CƯỚI & LỄ VU QUY NHÀ GÁI (PHÚ THỌ) - Chuẩn 100% theo mẫu thiệp in
   eventBride: {
     side: "bride",
     sideLabel: "Nhà Gái",
-    invitationType: "Thiệp Mời Vu Quy",
-    title: "Lễ Vu Quy - Tư Gia Nhà Gái",
-    subTitle: "Thân mời anh em, bạn bè và người thương tới chung vui bữa cơm thân mật cùng gia đình chúng mình!",
-    solarDate: "2026-12-20T07:30:00", 
-    solarDateText: "Chủ Nhật, 20 . 12 . 2026",
-    lunarDateText: "Nhằm ngày 12/11 năm Bính Ngọ",
-    timeText: "Vào lúc: 07:30",
-    locationName: "Tư gia Nhà Gái",
-    hallName: "Lễ Vu Quy",
-    address: "Khu 6 Hương Xa, Xã Yên Kỳ, Tỉnh Phú Thọ",
-    mapUrl: "https://maps.google.com/?q=Khu+6+H%C6%B0%C6%A1ng+Xa,+Y%C3%AAn+K%E1%BB%B3,+Ph%C3%BA+Th%E1%BB%8D",
-    timeline: [
-      { time: "07:30", title: "Đón Tiếp Khách Quý", desc: "Đón tiếp họ hàng, anh em bạn bè thân thiết tại tư gia Nhà Gái" },
-      { time: "09:00", title: "Lễ Vu Quy & Khai Tiệc", desc: "Nghi thức xuất giá, dâng trà chúc phúc và bữa cơm thân mật ấm cúng" },
-      { time: "10:30", title: "Lễ Rước Dâu", desc: "Đoàn nhà trai đón dâu khởi hành về tư gia Ninh Bình" }
-    ]
+    invitationType: "Thiệp Mời Vu Quy & Tiệc Mừng",
+    title: "Hồng Ngọc & Vũ Sang — Lễ Vu Quy & Tiệc Mừng",
+    subTitle: "Tới dự bữa cơm thân mật chung vui cùng gia đình chúng tôi mừng ngày thành hôn của con gái!",
+    // Tiệc cưới chính Nhà Gái: Thứ Bảy, 19/12/2026
+    solarDate: "2026-12-19T10:00:00", 
+    solarDateText: "Thứ Bảy, 19 . 12 . 2026",
+    lunarDateText: "Nhằm ngày 11/11 năm Bính Ngọ",
+    timeText: "Tiệc Cưới Nhà Gái",
+    locationName: "Nhà Hàng Sơn Tám",
+    hallName: "Tiệc Mừng Vu Quy",
+    address: "Khu 6, Xã Yên Kỳ, Huyện Hạ Hòa, Tỉnh Phú Thọ",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Nh%C3%A0+h%C3%A0ng+S%C6%A1n+T%C3%A1m+Khu+6+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D",
+    ceremony: {
+      title: "Lễ Vu Quy (Nghi thức Xuất Giá)",
+      timeText: "Vào lúc: 12:00",
+      solarDateText: "Chủ Nhật, 20 . 12 . 2026",
+      lunarDateText: "Nhằm ngày 12/11 năm Bính Ngọ",
+      locationName: "Tư gia Nhà Gái",
+      address: "Khu 6 Hương Xạ, Xã Yên Kỳ, Huyện Hạ Hòa, T. Phú Thọ",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Khu+6+H%C6%B0%C6%A1ng+X%E1%BA%A1+Y%C3%AAn+K%E1%BB%B3+H%E1%BA%A1+H%C3%B2a+Ph%C3%BA+Th%E1%BB%8D"
+    },
+    representative: "Đại diện gia đình: Ông bà Lưu Mạnh Thường & Ngô Thị Thơm kính báo",
+    subQuote: "Sự hiện diện của Quý vị là niềm vinh hạnh sâu sắc đối với gia đình chúng tôi!"
   },
 
   // Sự kiện mặc định (Nhà Trai)
