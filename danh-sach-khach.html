@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý & Tạo Link Thiệp Cưới Hàng Loạt | Văn Sang & Hồng Ngọc</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #faf9f7;
+      padding: 30px 16px;
+    }
+    .admin-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 40px rgba(104, 13, 25, 0.08);
+      padding: 36px 30px;
+      border: 1px solid var(--crimson-border);
+    }
+    .admin-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--gold-border);
+    }
+    .admin-title {
+      font-family: var(--font-title);
+      font-size: 24px;
+      letter-spacing: 1px;
+      color: var(--crimson-royal);
+      margin-bottom: 8px;
+    }
+    .admin-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .batch-input-area {
+      margin-bottom: 24px;
+    }
+    .batch-input-area label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: var(--crimson-royal);
+    }
+    .batch-textarea {
+      width: 100%;
+      height: 140px;
+      padding: 14px;
+      border: 1px solid #d5ded4;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      resize: vertical;
+    }
+    .batch-textarea:focus {
+      outline: none;
+      border-color: var(--crimson-royal);
+      box-shadow: 0 0 0 3px rgba(142, 21, 38, 0.15);
+    }
+    .batch-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .msg-template-box {
+      background: #fafaf8;
+      border: 1px solid #e3e8e2;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .msg-template-box label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--crimson-royal);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .msg-template-input {
+      width: 100%;
+      height: 70px;
+      padding: 10px;
+      font-size: 13px;
+      border: 1px solid #d5ded4;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+    }
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--crimson-light);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--crimson-royal);
+    }
+    .guest-table-wrapper {
+      overflow-x: auto;
+    }
+    .guest-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .guest-table th, .guest-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    .guest-table th {
+      background: #fdf8f9;
+      color: var(--crimson-royal);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .status-badge.sent {
+      background: #e6f4ea;
+      color: #137333;
+    }
+    .status-badge.pending {
+      background: #f1f3f4;
+      color: #5f6368;
+    }
+    .btn-action-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .btn-action-small:hover {
+      background: var(--crimson-light);
+      border-color: var(--crimson-royal);
+      color: var(--crimson-royal);
+    }
+    .btn-action-zalo {
+      background: #0068ff;
+      color: #fff;
+      border-color: #0068ff;
+    }
+    .btn-action-zalo:hover {
+      background: #0052cc;
+      color: #fff;
+    }
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      color: var(--crimson-royal);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .back-home-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    <a href="index.html" class="back-home-link">
+      &larr; Quay lại trang thiệp cưới
+    </a>
+
+    <div class="admin-header">
+      <h1 class="admin-title">Công Cụ Tạo Link Thiệp Cưới Cho Từng Người</h1>
+      <p class="admin-desc">
+        Dán danh sách bạn bè để tự động tạo đường link riêng có tên từng người. Mỗi người mở thiệp sẽ thấy tên mình xuất hiện trang trọng!
+      </p>
+    </div>
+
+    <!-- Ô Nhập danh sách bạn bè -->
+    <div class="batch-input-area">
+      <label for="names-input">
+        📝 Dán danh sách bạn bè (Mỗi người 1 dòng hoặc cách nhau bằng dấu phẩy):
+      </label>
+      <textarea id="names-input" class="batch-textarea" placeholder="Ví dụ:
+Hoàng Nam
+Thanh Hương
+Anh Tuấn & Người thương
+Bạn Thảo (Đại học)
+Gia đình Bác Hùng"></textarea>
+    </div>
+
+    <!-- Mẫu lời nhắn gửi kèm Zalo / Messenger -->
+    <div class="msg-template-box">
+      <label for="msg-template">
+        💬 Mẫu tin nhắn gửi kèm qua Zalo / Facebook Messenger:
+      </label>
+      <textarea id="msg-template" class="msg-template-input">Thân gửi {Tên}, chúng mình xin gửi thiệp cưới online mời bạn tới chung vui cùng gia đình chúng mình nhé: {Link} . Rất mong được đón tiếp bạn!</textarea>
+      <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+        * <code>{Tên}</code> sẽ tự thay bằng tên người nhận, <code>{Link}</code> sẽ tự thay bằng link thiệp riêng.
+      </div>
+    </div>
+
+    <!-- Các nút thao tác -->
+    
+      <div style="background: #fdf5f6; border: 1.5px solid var(--crimson-border); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <span style="font-weight: 700; font-size: 13.5px; color: var(--crimson-royal);">Chọn Mẫu Thiệp Gửi Khách:</span>
+        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; cursor: pointer; font-weight: 600;">
+          <input type="radio" name="target_wedding_side" value="groom" checked id="radio-side-groom" onchange="switchTargetSide('groom')">
+          <span>🏠 Thiệp Nhà Trai (index.html - Ninh Bình)</span>
+        </label>
+        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; cursor: pointer; font-weight: 600;">
+          <input type="radio" name="target_wedding_side" value="bride" id="radio-side-bride" onchange="switchTargetSide('bride')">
+          <span>🌸 Thiệp Nhà Gái (nha-gai.html - Phú Thọ)</span>
+        </label>
+      </div>
+
+      <div class="batch-controls">
+      <button id="btn-create-list" class="btn-primary">
+        🚀 Tạo Danh Sách Link Thiệp
+      </button>
+      <button id="btn-clear-list" class="btn-secondary">
+        🗑️ Xóa Danh Sách
+      </button>
+      <button id="btn-copy-all" class="btn-secondary">
+        📋 Copy Toàn Bộ Link (Để lưu file Excel)
+      </button>
+    </div>
+
+    <!-- Thanh thống kê -->
+    <div class="stats-bar">
+      <div>Tổng cộng: <span id="stat-total" style="color: var(--primary-green);">0</span> khách mời</div>
+      <div>Đã gửi: <span id="stat-sent" style="color: #137333;">0</span> | Chưa gửi: <span id="stat-pending" style="color: #d93025;">0</span></div>
+    </div>
+
+    <!-- Bảng danh sách từng người -->
+    <div class="guest-table-wrapper">
+      <table class="guest-table">
+        <thead>
+          <tr>
+            <th style="width: 50px;">STT</th>
+            <th>Tên Khách Mời</th>
+            <th style="width: 110px;">Trạng Thái</th>
+            <th style="width: 290px;">Thao Tác</th>
+          </tr>
+        </thead>
+        <tbody id="guest-table-body">
+          <tr>
+            <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">
+              Chưa có danh sách khách mời. Hãy nhập tên ở trên và bấm "Tạo Danh Sách Link Thiệp" nhé!
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div id="toast-notice" class="toast-notice"></div>
+
+  <script>
+    const STORAGE_KEY = "wedding_guest_list_batch";
+    const TEMPLATE_KEY = "wedding_msg_template";
+
+    const namesInput = document.getElementById("names-input");
+    const msgTemplateInput = document.getElementById("msg-template");
+    const btnCreate = document.getElementById("btn-create-list");
+    const btnClear = document.getElementById("btn-clear-list");
+    const btnCopyAll = document.getElementById("btn-copy-all");
+    const tableBody = document.getElementById("guest-table-body");
+    const statTotal = document.getElementById("stat-total");
+    const statSent = document.getElementById("stat-sent");
+    const statPending = document.getElementById("stat-pending");
+
+    let guests = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    const savedTemplate = localStorage.getItem(TEMPLATE_KEY);
+    if (savedTemplate) {
+      msgTemplateInput.value = savedTemplate;
+    }
+
+    renderTable();
+
+    // Lưu mẫu tin nhắn khi thay đổi
+    msgTemplateInput.addEventListener("input", () => {
+      localStorage.setItem(TEMPLATE_KEY, msgTemplateInput.value);
+    });
+
+    // Tạo danh sách
+    btnCreate.addEventListener("click", () => {
+      const rawText = namesInput.value.trim();
+      if (!rawText) {
+        showToast("Vui lòng nhập danh sách tên bạn bè nhé!");
+        return;
+      }
+
+      // Tách theo dòng hoặc dấu phẩy
+      const lines = rawText.split(/\r?\n|,/).map(s => s.trim()).filter(Boolean);
+      if (lines.length === 0) return;
+
+      lines.forEach(name => {
+        // Kiểm tra không thêm trùng
+        if (!guests.some(g => g.name.toLowerCase() === name.toLowerCase())) {
+          guests.push({
+            id: Date.now() + Math.random().toString(36).substr(2, 4),
+            name: name,
+            sent: false
+          });
+        }
+      });
+
+      saveAndRender();
+      namesInput.value = "";
+      showToast(`Đã thêm thành công ${lines.length} khách mời!`);
+    });
+
+    // Xóa toàn bộ
+    btnClear.addEventListener("click", () => {
+      if (confirm("Bạn có chắc chắn muốn xóa toàn bộ danh sách khách mời này không?")) {
+        guests = [];
+        saveAndRender();
+        showToast("Đã xóa danh sách!");
+      }
+    });
+
+    // Copy toàn bộ
+    btnCopyAll.addEventListener("click", () => {
+      if (!guests.length) {
+        showToast("Chưa có khách mời nào để sao chép!");
+        return;
+      }
+      const text = guests.map((g, idx) => {
+        const link = getGuestLink(g.name);
+        return `${idx + 1}. ${g.name} - ${link}`;
+      }).join("\n");
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Đã sao chép toàn bộ danh sách link!");
+      });
+    });
+
+    let currentTargetSide = "groom";
+
+    function switchTargetSide(side) {
+      currentTargetSide = side;
+      if (side === "bride") {
+        msgTemplateInput.value = "Thân gửi {Tên}, Hồng Ngọc & Văn Sang xin gửi thiệp mời Vu Quy online mời bạn tới chung vui bữa cơm thân mật tại Tư gia Nhà Gái (Phú Thọ) vào ngày 20/12/2026: {Link} . Rất mong được đón tiếp bạn!";
+      } else {
+        msgTemplateInput.value = "Thân gửi {Tên}, Sang & Ngọc xin gửi thiệp cưới online mời bạn tới chung vui bữa cơm thân mật tại Tư gia Nhà Trai (Ninh Bình) vào ngày 20/12/2026: {Link} . Rất mong được đón tiếp bạn!";
+      }
+      renderTable();
+    }
+
+    function getGuestLink(name) {
+      const targetFile = currentTargetSide === "bride" ? "nha-gai.html" : "index.html";
+      const currentUrl = window.location.href.split("?")[0].replace("danh-sach-khach.html", targetFile);
+      return `${currentUrl}?to=${encodeURIComponent(name)}`;
+    }
+
+    function formatMessage(name) {
+      const tpl = msgTemplateInput.value;
+      const link = getGuestLink(name);
+      return tpl.replace(/{Tên}/g, name).replace(/{Link}/g, link);
+    }
+
+    function saveAndRender() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+      renderTable();
+    }
+
+    function renderTable() {
+      statTotal.textContent = guests.length;
+      const sentCount = guests.filter(g => g.sent).length;
+      statSent.textContent = sentCount;
+      statPending.textContent = guests.length - sentCount;
+
+      if (!guests.length) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">
+              Chưa có danh sách khách mời. Hãy nhập tên ở trên và bấm "Tạo Danh Sách Link Thiệp" nhé!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tableBody.innerHTML = guests.map((g, idx) => {
+        const link = getGuestLink(g.name);
+        const sentBadgeClass = g.sent ? "sent" : "pending";
+        const sentBadgeText = g.sent ? "✓ Đã Gửi" : "Chưa Gửi";
+
+        return `
+          <tr>
+            <td><strong>${idx + 1}</strong></td>
+            <td>
+              <div style="font-weight: 600; font-size: 14px; color: var(--text-dark);">${escapeHtml(g.name)}</div>
+              <div style="font-size: 11px; color: var(--text-muted); word-break: break-all;">${link}</div>
+            </td>
+            <td>
+              <span class="status-badge ${sentBadgeClass}" onclick="toggleSent('${g.id}')" title="Bấm để đổi trạng thái">
+                ${sentBadgeText}
+              </span>
+            </td>
+            <td>
+              <button class="btn-action-small btn-action-zalo" onclick="copyMessage('${escapeAttr(g.name)}', '${g.id}')">
+                💬 Copy Tin Zalo
+              </button>
+              <button class="btn-action-small" onclick="copyLink('${escapeAttr(link)}')">
+                🔗 Copy Link
+              </button>
+              <a class="btn-action-small" href="${link}" target="_blank">
+                👁️ Xem Thiệp
+              </a>
+              <button class="btn-action-small" style="color: #d93025;" onclick="deleteGuest('${g.id}')">
+                ✕
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    window.toggleSent = function(id) {
+      const g = guests.find(x => x.id === id);
+      if (g) {
+        g.sent = !g.sent;
+        saveAndRender();
+      }
+    };
+
+    window.deleteGuest = function(id) {
+      guests = guests.filter(x => x.id !== id);
+      saveAndRender();
+      showToast("Đã xóa khách mời khỏi danh sách!");
+    };
+
+    window.copyLink = function(link) {
+      navigator.clipboard.writeText(link).then(() => {
+        showToast("Đã copy link thiệp!");
+      });
+    };
+
+    window.copyMessage = function(name, id) {
+      const msg = formatMessage(name);
+      navigator.clipboard.writeText(msg).then(() => {
+        // Tự động đánh dấu đã gửi
+        const g = guests.find(x => x.id === id);
+        if (g && !g.sent) {
+          g.sent = true;
+          saveAndRender();
+        }
+        showToast(`Đã copy tin nhắn Zalo cho "${name}"! Giờ bạn chỉ cần dán vào khung chat Zalo/Messenger.`);
+      });
+    };
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast-notice");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function escapeAttr(str) {
+      return str.replace(/'/g, "\\'").replace(/"/g, "&quot;");
+    }
+  </script>
+</body>
+</html>
